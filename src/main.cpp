@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     app.setApplicationName("CLRS Sorting algoritms");
 
-    const int size = 20;
-    int *sourceArray = new int[size];
+    const int size = 10;
+    float *sourceArray = new float[size];
 
     qsrand(QTime::currentTime().msecsSinceStartOfDay());
 
@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 
     std::cout << "Unsort: ";
     for (int i = 0; i < size; ++i) {
-        sourceArray[i] = qrand() % top + 10;
+        sourceArray[i] = (float)(qrand() % top + 10) / 100;
         std::cout << sourceArray[i] << ' ';
     }
 
-    std::cout << "\n";
+    std::cout << "\n" << std::flush;
 
 
     //    1. Insertion sort
