@@ -12,7 +12,6 @@ class MultiSorter
 public:
     MultiSorter();
 
-//    1. Sorting algoritms
     template<typename T>
     static void insertionSort( T *a, const int size, const Order flag = Order::Ascend ); // Θ(n^2)
 
