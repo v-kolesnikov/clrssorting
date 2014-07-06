@@ -17,7 +17,8 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    src/multisorter.h
+    src/multisorter.h \
+    src/multisorter.tpp
 
 OTHER_FILES += \
     src/qml/main.qml

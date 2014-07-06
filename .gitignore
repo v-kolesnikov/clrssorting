@@ -36,3 +36,4 @@ Icon
 .Trashes
 
 *.user
+src/old_src/multisorter.cpp
