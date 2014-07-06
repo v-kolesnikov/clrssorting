@@ -14,23 +14,13 @@ public:
 
 //    1. Sorting algoritms
     template<typename T>
-    static void insertionSort(T *a, const int size, const Order flag = Order::Ascend); // Θ(n^2)
+    static void insertionSort( T *a, const int size, const Order flag = Order::Ascend ); // Θ(n^2)
 
     template<typename T>
-    static T *selectionSort(const T *a, const int size, const Order flag = Order::Ascend); // Θ(n^2)
+    static void selectionSort( T *a, const int size, const Order flag = Order::Ascend ); // Θ(n^2)
 
     template<typename T>
-    static T *bubbleSort(const T *a, const int size, const Order flag = Order::Ascend);    // Θ(n^2)
-
-//    2. Helper functions
-    template<typename T>
-    static T *clone(const T *a, const int size);
-
-private:
-
-    static int * createArray(const int size);
-    static int * cloneArray(const int *a, const int size);
-    static void printArray(const int *a, const int size);
+    static void bubbleSort( T *a, const int size, const Order flag = Order::Ascend );    // Θ(n^2)
 };
 
 #include "multisorter.tpp"
