@@ -7,22 +7,22 @@ MultiSorter::MultiSorter()
 {
 }
 
-int *MultiSorter::insertionSort(const int *a, const int size, const Order flag)
-{
-    int * sortedArray = cloneArray(a, size);
+//int *MultiSorter::insertionSort(const int *a, const int size, const Order flag)
+//{
+//    int * sortedArray = cloneArray(a, size);
 
-    for (int i = 1; i < size; ++i) {
-        int key = sortedArray[i];
-        int j = i - 1;
-        while (j >= 0 && (flag == Order::Ascend ? sortedArray[j] > key : sortedArray[j] < key)) {
-            sortedArray[j+1] = sortedArray[j];
-            --j;
-        }
-        sortedArray[j+1] = key;
-    }
+//    for (int i = 1; i < size; ++i) {
+//        int key = sortedArray[i];
+//        int j = i - 1;
+//        while (j >= 0 && (flag == Order::Ascend ? sortedArray[j] > key : sortedArray[j] < key)) {
+//            sortedArray[j+1] = sortedArray[j];
+//            --j;
+//        }
+//        sortedArray[j+1] = key;
+//    }
 
-    return sortedArray;
-}
+//    return sortedArray;
+//}
 
 int *MultiSorter::selectionSort(const int *a, const int size, const Order flag)
 {
@@ -61,6 +61,8 @@ int *MultiSorter::bubbleSort(const int *a, const int size, const Order flag)
     return sortedArray;
 }
 
+// PRIVATE
+
 int *MultiSorter::createArray(const int size)
 {
     if (size <= 0) {
@@ -88,6 +90,8 @@ int *MultiSorter::cloneArray(const int *a, const int size)
 void MultiSorter::deleteArray(const int *a, const int size)
 {
     //TODO
+    Q_UNUSED(a);
+    Q_UNUSED(size);
 }
 
 void MultiSorter::printArray(const int *a, const int size)

@@ -25,27 +25,30 @@ int main(int argc, char *argv[])
 
     int top = 90;
 
+    debug << "Unsort: ";
     for (int i = 0; i < size; ++i) {
         sourceArray[i] = qrand() % top + 10;
-        debug << sourceArray[i] << ' ';
+        debug << sourceArray[i];
     }
 
-    debug << endl << endl;
+    debug << endl;
 
 //    1. Insertion sort
-//    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Ascend);
+    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Ascend);
 
-//    for (int i = 0; i < size; ++i) {
-//        debug << sortedArray[i] << ' ';
-//    }
+    debug << "Ascend: ";
+    for (int i = 0; i < size; ++i) {
+        debug << sortedArray[i];
+    }
 
-//    debug << endl << endl;
+    debug << endl;
 
-//    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Descend);
+    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Descend);
 
-//    for (int i = 0; i < size; ++i) {
-//        debug << sortedArray[i] << ' ';
-//    }
+    debug << "Descend:";
+    for (int i = 0; i < size; ++i) {
+        debug << sortedArray[i];
+    }
 
 
 //    2. Selection sort
@@ -59,11 +62,19 @@ int main(int argc, char *argv[])
 
 //    3. Bubble sort
 
-    sortedArray = MultiSorter::bubbleSort(sourceArray, size, Order::Descend);
+//    sortedArray = MultiSorter::bubbleSort(sourceArray, size, Order::Descend);
 
-    for (int i = 0; i < size; ++i) {
-        debug << sortedArray[i] << ' ';
-    }
+//    for (int i = 0; i < size; ++i) {
+//        debug << sortedArray[i] << ' ';
+//    }
+
+//    4. Testing clone template
+
+//    sortedArray = MultiSorter::clone(sourceArray, size);
+
+//    for (int i = 0; i < size; ++i) {
+//        debug << sortedArray[i] << ' ';
+//    }
 
     return 0; //app.exec();
 }
