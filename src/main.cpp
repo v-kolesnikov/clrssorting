@@ -10,7 +10,7 @@ using namespace CLRS;
 
 int main(int argc, char *argv[])
 {
-//    QGuiApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 
 //    QQmlApplicationEngine engine;
 //    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
@@ -39,14 +39,18 @@ int main(int argc, char *argv[])
         std::cout << sortedArray[i] << ' ';
     }
 
-    std::cout << "\n";
+//    delete [] sortedArray;
 
-    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Descend);
+//    std::cout << "\n";
 
-    std::cout << "Descend:";
-    for (int i = 0; i < size; ++i) {
-        std::cout << sortedArray[i] << ' ';
-    }
+//    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Descend);
+
+//    std::cout << "Descend:";
+//    for (int i = 0; i < size; ++i) {
+//        std::cout << sortedArray[i] << ' ';
+//    }
+
+//    delete [] sortedArray;
 
     //    2. Selection sort
 
