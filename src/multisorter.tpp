@@ -1,20 +1,20 @@
 
 template<typename T>
-T *MultiSorter::insertionSort(const T *a, const int size, const Order flag)
+void MultiSorter::insertionSort(T *a, const int size, const Order flag)
 {
-    T* sortedArray = clone(a, size);
+//    T* sortedArray = clone(a, size);
 
     for (int i = 1; i < size; ++i) {
-        int key = sortedArray[i];
+        int key = a[i];
         int j = i - 1;
-        while (j >= 0 && (flag == Order::Ascend ? sortedArray[j] > key : sortedArray[j] < key)) {
-            sortedArray[j+1] = sortedArray[j];
+        while (j >= 0 && (flag == Order::Ascend ? a[j] > key : a[j] < key)) {
+            a[j+1] = a[j];
             --j;
         }
-        sortedArray[j+1] = key;
+        a[j+1] = key;
     }
 
-    return sortedArray;
+//    return sortedArray;
 }
 
 template<typename T>

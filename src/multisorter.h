@@ -14,7 +14,7 @@ public:
 
 //    1. Sorting algoritms
     template<typename T>
-    static T *insertionSort(const T *a, const int size, const Order flag = Order::Ascend); // Θ(n^2)
+    static void insertionSort(T *a, const int size, const Order flag = Order::Ascend); // Θ(n^2)
 
     template<typename T>
     static T *selectionSort(const T *a, const int size, const Order flag = Order::Ascend); // Θ(n^2)

@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
     std::cout << "\n";
 
     //    1. Insertion sort
-    sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Ascend);
+    /*sortedArray = */MultiSorter::insertionSort(sourceArray, size, Order::Ascend);
 
     std::cout << "InsertionSort\n" << "Ascend: ";
     for (int i = 0; i < size; ++i) {
-        std::cout << sortedArray[i] << ' ';
+        std::cout << sourceArray[i] << ' ';
     }
 
 //    delete [] sortedArray;
