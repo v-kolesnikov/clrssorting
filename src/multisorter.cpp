@@ -1,5 +1,4 @@
 #include "multisorter.h"
-#include <QDebug>
 
 using namespace CLRS;
 
@@ -24,42 +23,42 @@ MultiSorter::MultiSorter()
 //    return sortedArray;
 //}
 
-int *MultiSorter::selectionSort(const int *a, const int size, const Order flag)
-{
-    int * sortedArray = cloneArray(a, size);
+//int *MultiSorter::selectionSort(const int *a, const int size, const Order flag)
+//{
+//    int * sortedArray = cloneArray(a, size);
 
-    for (int i = 0; i < size; ++i) {
-        int idx = i;
-        int buffer = sortedArray[i] ;
-        for (int j = i + 1; j < size; ++j) {
-            if (flag == Order::Ascend ? sortedArray[j] < buffer : sortedArray[j] > buffer) {
-                idx = j;
-                buffer = sortedArray[j];
-            }
-        }
-        sortedArray[idx] = sortedArray[i];
-        sortedArray[i] = buffer;
-    }
+//    for (int i = 0; i < size; ++i) {
+//        int idx = i;
+//        int buffer = sortedArray[i] ;
+//        for (int j = i + 1; j < size; ++j) {
+//            if (flag == Order::Ascend ? sortedArray[j] < buffer : sortedArray[j] > buffer) {
+//                idx = j;
+//                buffer = sortedArray[j];
+//            }
+//        }
+//        sortedArray[idx] = sortedArray[i];
+//        sortedArray[i] = buffer;
+//    }
 
-    return sortedArray;
-}
+//    return sortedArray;
+//}
 
-int *MultiSorter::bubbleSort(const int *a, const int size, const Order flag)
-{
-    int * sortedArray = cloneArray(a, size);
+//int *MultiSorter::bubbleSort(const int *a, const int size, const Order flag)
+//{
+//    int * sortedArray = cloneArray(a, size);
 
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size - i - 1; ++j) {
-            if (flag == Order::Ascend ? sortedArray[j] > sortedArray[j+1] : sortedArray[j] < sortedArray[j+1]) {
-                int bubble = sortedArray[j];
-                sortedArray[j] = sortedArray[j+1];
-                sortedArray[j+1] = bubble;
-            }
-        }
-    }
+//    for (int i = 0; i < size; ++i) {
+//        for (int j = 0; j < size - i - 1; ++j) {
+//            if (flag == Order::Ascend ? sortedArray[j] > sortedArray[j+1] : sortedArray[j] < sortedArray[j+1]) {
+//                int bubble = sortedArray[j];
+//                sortedArray[j] = sortedArray[j+1];
+//                sortedArray[j+1] = bubble;
+//            }
+//        }
+//    }
 
-    return sortedArray;
-}
+//    return sortedArray;
+//}
 
 // PRIVATE
 
@@ -87,19 +86,12 @@ int *MultiSorter::cloneArray(const int *a, const int size)
     return array;
 }
 
-void MultiSorter::deleteArray(const int *a, const int size)
-{
-    //TODO
-    Q_UNUSED(a);
-    Q_UNUSED(size);
-}
-
 void MultiSorter::printArray(const int *a, const int size)
 {
     if (!a || size <= 0)
         return;
-    QDebug debug(QtDebugMsg);
+//    QDebug debug(QtDebugMsg);
     for (int i = 0; i < size; ++i) {
-        debug << a[i] << ' ';
+//        debug << a[i] << ' ';
     }
 }

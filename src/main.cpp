@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QTime>
-#include <QDebug>
+//#include <QDebug>
 
 #include <iostream>
 #include "multisorter.h"
@@ -10,9 +10,7 @@ using namespace CLRS;
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
-
-    QDebug debug(QtDebugMsg);
+//    QGuiApplication app(argc, argv);
 
 //    QQmlApplicationEngine engine;
 //    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
@@ -25,38 +23,38 @@ int main(int argc, char *argv[])
 
     int top = 90;
 
-    debug << "Unsort: ";
+    std::cout << "Unsort: ";
     for (int i = 0; i < size; ++i) {
         sourceArray[i] = qrand() % top + 10;
-        debug << sourceArray[i];
+        std::cout << sourceArray[i] << ' ';
     }
 
-    debug << endl;
+    std::cout << "\n";
 
-//    1. Insertion sort
+    //    1. Insertion sort
     sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Ascend);
 
-    debug << "Ascend: ";
+    std::cout << "InsertionSort\n" << "Ascend: ";
     for (int i = 0; i < size; ++i) {
-        debug << sortedArray[i];
+        std::cout << sortedArray[i] << ' ';
     }
 
-    debug << endl;
+    std::cout << "\n";
 
     sortedArray = MultiSorter::insertionSort(sourceArray, size, Order::Descend);
 
-    debug << "Descend:";
+    std::cout << "Descend:";
     for (int i = 0; i < size; ++i) {
-        debug << sortedArray[i];
+        std::cout << sortedArray[i] << ' ';
     }
 
+    //    2. Selection sort
 
-//    2. Selection sort
+//    sortedArray = MultiSorter::selectionSort(sourceArray, size, Order::Ascend);
 
-//    sortedArray = MultiSorter::selectionSort(sourceArray, size, Order::Descend);
-
+//    std::cout << "\nSelection sort\n" << "Ascend: ";
 //    for (int i = 0; i < size; ++i) {
-//        debug << sortedArray[i] << ' ';
+//        std::cout << sortedArray[i] << ' ';
 //    }
 
 
@@ -64,17 +62,18 @@ int main(int argc, char *argv[])
 
 //    sortedArray = MultiSorter::bubbleSort(sourceArray, size, Order::Descend);
 
+//    debug << endl << "Bubble sort" << endl << "Descend:";
 //    for (int i = 0; i < size; ++i) {
 //        debug << sortedArray[i] << ' ';
 //    }
 
-//    4. Testing clone template
+    //    4. Testing clone template
 
-//    sortedArray = MultiSorter::clone(sourceArray, size);
+    //    sortedArray = MultiSorter::clone(sourceArray, size);
 
-//    for (int i = 0; i < size; ++i) {
-//        debug << sortedArray[i] << ' ';
-//    }
+    //    for (int i = 0; i < size; ++i) {
+    //        debug << sortedArray[i] << ' ';
+    //    }
 
     return 0; //app.exec();
 }
