@@ -22,7 +22,10 @@ public:
     static void bubbleSort( T *a, const int size, const Order flag = Order::Ascend );    // Θ(n^2)
 
     template<typename T>
-    static void merge( T *a, const int p, const int q, const int r, const Order flag = Order::Ascend );
+    static void mergeSort( T *a, const int begin, const int end, const Order flag = Order::Ascend );    // Θ(nlgn)
+
+    template<typename T>
+    static void merge( T *a, const int p, const int q, const int r, const Order flag = Order::Ascend ); // Θ(n)
 
 };
 

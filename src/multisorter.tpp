@@ -45,6 +45,17 @@ void MultiSorter::bubbleSort(T *a, const int size, const Order flag)
 }
 
 template<typename T>
+void MultiSorter::mergeSort( T *a, const int begin, const int end, const Order flag)
+{
+    if (begin < end) {
+        int mid = (begin + end) / 2;
+        MultiSorter::mergeSort(a, begin, mid, flag);
+        MultiSorter::mergeSort(a, mid + 1, end, flag);
+        MultiSorter::merge(a, begin, mid, end, flag);
+    }
+}
+
+template<typename T>
 void MultiSorter::merge(T *a, const int p, const int q, const int r, const Order flag)
 {
     int lSize = q - p + 1;
@@ -65,13 +76,21 @@ void MultiSorter::merge(T *a, const int p, const int q, const int r, const Order
     int rIdx = 0;   // Current index for rightSide array
 
     for (int i = p; i <= r; ++i) {
-        if (leftSide[lIdx] <= rightSide[rIdx]) {
+        if (lIdx < lSize && rIdx < rSize) {
+            if (flag == Order::Ascend ?
+                    leftSide[lIdx] <= rightSide[rIdx] : leftSide[lIdx] >= rightSide[rIdx]) {
+                a[i] = leftSide[lIdx];
+                ++lIdx;
+            } else {
+                a[i] = rightSide[rIdx];
+                ++rIdx;
+            }
+        } else if (lIdx < lSize) {
             a[i] = leftSide[lIdx];
             ++lIdx;
-        } else {
+        } else if (rIdx < rSize) {
             a[i] = rightSide[rIdx];
             ++rIdx;
         }
     }
-
 }
