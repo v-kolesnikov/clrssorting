@@ -20,13 +20,13 @@ int main(int argc, char *argv[])
 
     std::cout << "Unsort: ";
     for (int i = 0; i < size; ++i) {
-        sourceArray[i] = (float)(qrand() % top + 10) / 100;
+        sourceArray[i] = /*qrand() % top + 10;*/ (float)(qrand() % top + 10) / 100;
         std::cout << sourceArray[i] << ' ';
     }
 
     std::cout << "\n" << std::flush;
 
-
+/*
     //    1. Insertion sort
     MultiSorter::insertionSort(sourceArray, size, Order::Ascend);
 
@@ -62,6 +62,15 @@ int main(int argc, char *argv[])
     MultiSorter::bubbleSort(sourceArray, size, Order::Descend);
 
     std::cout << "Bubble sort\n" << "Descend:";
+    for (int i = 0; i < size; ++i) {
+        std::cout << sourceArray[i] << ' ';
+    }
+*/
+
+    //    4. Merge sort
+    MultiSorter::mergeSort(sourceArray, 0, size - 1, Order::Descend);
+
+    std::cout << "Merge sort\n" << "Ascend: ";
     for (int i = 0; i < size; ++i) {
         std::cout << sourceArray[i] << ' ';
     }
