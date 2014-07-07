@@ -43,3 +43,35 @@ void MultiSorter::bubbleSort(T *a, const int size, const Order flag)
         }
     }
 }
+
+template<typename T>
+void MultiSorter::merge(T *a, const int p, const int q, const int r, const Order flag)
+{
+    int lSize = q - p + 1;
+    int rSize = r - q;
+
+    T* leftSide = new T[lSize];
+    T* rightSide = new T[rSize];
+
+    for (int i = 0; i < lSize; ++i) {
+        leftSide[i] = a[p + i];
+    }
+
+    for (int i = 0; i < rSize; ++i) {
+        rightSide[i] = a[q + i + 1];
+    }
+
+    int lIdx = 0;   // Current index for leftSide array
+    int rIdx = 0;   // Current index for rightSide array
+
+    for (int i = p; i <= r; ++i) {
+        if (leftSide[lIdx] <= rightSide[rIdx]) {
+            a[i] = leftSide[lIdx];
+            ++lIdx;
+        } else {
+            a[i] = rightSide[rIdx];
+            ++rIdx;
+        }
+    }
+
+}

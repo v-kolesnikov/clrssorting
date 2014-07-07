@@ -20,6 +20,10 @@ public:
 
     template<typename T>
     static void bubbleSort( T *a, const int size, const Order flag = Order::Ascend );    // Θ(n^2)
+
+    template<typename T>
+    static void merge( T *a, const int p, const int q, const int r, const Order flag = Order::Ascend );
+
 };
 
 #include "multisorter.tpp"
