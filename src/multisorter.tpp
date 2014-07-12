@@ -94,3 +94,78 @@ void MultiSorter::merge(T *a, const int p, const int q, const int r, const Order
         }
     }
 }
+
+template<typename T>
+void MultiSorter::findMaxSubarray( T *a, const int begin, const int end,
+                                   int &lMax, int &rMax, T &sum)
+{
+    if (begin == end) {
+        lMax = begin;
+        rMax = end;
+        sum = T(a[begin]);
+    } else {
+        int mid = (begin + end) / 2;
+
+        int leftLow; int leftHight; T leftSum;
+        MultiSorter::findMaxSubarray(a, begin, mid, leftLow, leftHight, leftSum);
+
+        int rightLow; int rightHight; T rightSum;
+        MultiSorter::findMaxSubarray(a, mid + 1, end, rightLow, rightHight, rightSum);
+
+        int crossLow; int crossHight; T crossSum;
+        MultiSorter::findMaxCrossSubarray(a, begin, mid, end, crossLow, crossHight, crossSum);
+
+        if (leftSum >= rightSum && leftSum >= crossSum) {
+            lMax = leftLow;
+            rMax = leftHight;
+            sum = leftSum;
+        } else if (rightSum >= leftSum && rightSum >= crossSum) {
+            lMax = rightLow;
+            rMax = rightHight;
+            sum = rightSum;
+        } else {
+            lMax = crossLow;
+            rMax = crossHight;
+            sum = crossSum;
+        }
+    }
+}
+
+template<typename T>
+void MultiSorter::findMaxCrossSubarray( T *a, const int begin, const int mid, const int end,
+                                        int &lMax, int &rMax, T &sum)
+{
+    T currentLeftSum = T();
+    T leftSum = T();
+    int maxLeft = mid;
+
+    for (int i = mid; i >= begin; --i) {
+        currentLeftSum += a[i];
+        if (i == mid) {
+            leftSum = currentLeftSum;
+            maxLeft = i;
+        } else if (currentLeftSum > leftSum) {
+            leftSum = currentLeftSum;
+            maxLeft = i;
+        }
+    }
+
+    T currentRightSum = T();
+    T rightSum = T();
+    int maxRight = mid + 1;
+
+    for (int i = mid + 1; i <= end; ++i) {
+        currentRightSum += a[i];
+        if (i == mid + 1) {
+            rightSum = currentRightSum;
+            maxRight = i;
+        } else if (currentRightSum > rightSum) {
+            rightSum = currentRightSum;
+            maxRight = i;
+        }
+    }
+
+    lMax = maxLeft;
+    rMax = maxRight;
+    sum = leftSum + rightSum;
+}

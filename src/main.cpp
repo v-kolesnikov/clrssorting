@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     app.setApplicationName("CLRS Sorting algoritms");
 
-    const int size = 20;
+    const int size = 8;
     int *intArray = new int[size];
 //    float *floatArray = new float[size];
 
@@ -24,6 +24,8 @@ int main(int argc, char *argv[])
         intArray[i] = qrand() % top - 100; //(float)(qrand() % top + 10) / 100;
         std::cout << intArray[i] << ' ';
     }
+
+    std::cout << std::endl;
 /*
     std::cout << std::endl << "Unsort: ";
 
@@ -83,6 +85,15 @@ int main(int argc, char *argv[])
         std::cout << floatArray[i] << ' ';
     }
 */
-    std::cout << std::endl;
+
+    //    5. Find max subarray
+    int lIdx = -1;
+    int rIdx = -1;
+    int maxSum = 0;
+
+    MultiSorter::findMaxSubarray(intArray, 0, size - 1, lIdx, rIdx, maxSum);
+
+    std::cout << "[" << lIdx << "," << rIdx << "] " << maxSum << std::endl;
+
     return 0;
 }

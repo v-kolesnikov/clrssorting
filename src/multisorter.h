@@ -27,6 +27,13 @@ public:
     template<typename T>
     static void merge( T *a, const int p, const int q, const int r, const Order flag = Order::Ascend ); // Θ(n)
 
+    template<typename T>
+    static void findMaxSubarray( T *a, const int begin, const int end,
+                                 int &lMax, int &rMax, T &sum);
+
+    template<typename T>
+    static void findMaxCrossSubarray( T *a, const int begin, const int mid, const int end,
+                                      int &lMax, int &rMax, T &sum);
 };
 
 #include "multisorter.tpp"
