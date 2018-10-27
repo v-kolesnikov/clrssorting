@@ -1,27 +1,20 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QTime>
 #include <iostream>
+#include <stdlib.h>
 #include "multisorter.h"
 
 using namespace CLRS;
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
-    app.setApplicationName("CLRS Sorting algoritms");
-
     const int size = 8;
     int *intArray = new int[size];
 //    float *floatArray = new float[size];
-
-    qsrand(QTime::currentTime().msecsSinceStartOfDay());
 
     int top = 200;
 
     std::cout << "Unsort: ";
     for (int i = 0; i < size; ++i) {
-        intArray[i] = qrand() % top - 100; //(float)(qrand() % top + 10) / 100;
+        intArray[i] = rand() % top - 100; //(float)(qrand() % top + 10) / 100;
         std::cout << intArray[i] << ' ';
     }
 
